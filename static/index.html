@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversational Voice Agent</title>
+    <link rel="icon" type="image/png" href="/static/favicon.png"/>
+    <style>
+        body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            background: #0f172a;
+            color: #e2e8f0;
+        }
+        .container {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #334155;
+            border-radius: 12px;
+            background: #111827;
+        }
+        .title {
+            margin: 0 0 8px 0;
+            font-size: 24px;
+            color: #f1f5f9;
+        }
+        .subtitle {
+            margin: 0 0 16px 0;
+            color: #94a3b8;
+        }
+        .record-btn {
+            width: 140px;
+            height: 140px;
+            border-radius: 9999px;
+            border: none;
+            background: radial-gradient(circle at 30% 30%, #ef4444, #b91c1c);
+            color: white;
+            font-size: 18px;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(239, 68, 68, 0.35);
+            transition: transform 0.15s ease, box-shadow 0.2s ease;
+        }
+        .record-btn:hover { transform: scale(1.03); }
+        .record-btn:active { transform: scale(0.98); }
+        .record-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+        .record-btn.recording {
+            animation: pulse 1.25s ease-in-out infinite;
+            box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7);
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.7); }
+            70% { box-shadow: 0 0 0 25px rgba(239, 68, 68, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+        .center { display: flex; align-items: center; gap: 16px; }
+        .status { color: #94a3b8; margin-left: 8px; }
+        .dot { width: 10px; height: 10px; border-radius: 50%; background: #22c55e; display: inline-block; margin-right: 8px; }
+        .dot.recording { background: #ef4444; }
+        audio { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Conversational Agent</h1>
+        <p class="subtitle">Tap to talk. Your assistant will reply and listen again when it finishes.</p>
+        <div class="center">
+            <button id="recordBtn" class="record-btn">Record</button>
+            <div class="status"><span id="statusDot" class="dot"></span><span id="status">Idle</span></div>
+    </div>
+        <audio id="agentAudio" preload="auto"></audio>
+    </div>
+    <script src="/static/main.js"></script>
+</body>
+</html>
