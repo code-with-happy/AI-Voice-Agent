@@ -128,7 +128,7 @@ Use separate tabs with different `?session=` IDs to keep separate conversations.
 ## Simulating Failures (for testing error handling)
 
 Temporarily unset API keys and restart the server:
-
+//
 PowerShell:
 ```powershell
 Remove-Item Env:ASSEMBLYAI_API_KEY
